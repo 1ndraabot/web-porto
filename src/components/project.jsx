@@ -5,7 +5,7 @@ const Projects = ()=> {
                 <div>
                     <p>Fullstack Website</p>
                     <h2>NessUP</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia eaque provident voluptate, aut laboriosam non in corporis. Veniam ex eligendi iste fugiat laudantium officiis aliquid accusantium, unde, repellat, minus expedita.</p>
+                    <p>Aplikasi sistem informasi event skala universitas</p>
                     <div>
                         <p>Laravel</p>
                         <p>React</p>

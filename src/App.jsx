@@ -6,6 +6,7 @@ import '@fontsource/hanken-grotesk';
 import '@fontsource/space-mono';
 import './index.css';
 import './App.css';
+import Projects2 from './components/Projects';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <AboutMe />
       <Academy />
       <Projects />
+      <Projects2 /> 
     </>
   )
 }
