@@ -1,9 +1,3 @@
-// ---------------------------------------------------------------
-// Projects.jsx  —  React + Tailwind CSS v4
-// Memakai token tema milik project (lihat index.css di bagian bawah file ini)
-// ---------------------------------------------------------------
-
-/* ---------- Ikon kecil (inline SVG, tanpa dependency) ---------- */
 const IconCode = () => (
   <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <polyline points="8 6 2 12 8 18" />
@@ -65,7 +59,6 @@ const accents = {
   },
 };
 
-/* ---------- Data proyek ---------- */
 const projects = [
   {
     id: "WEB-0x01",
@@ -126,7 +119,6 @@ const ProjectCard = ({ project }) => {
 
   return (
     <article className="flex flex-col border border-bgBorder bg-bgBorderDark/40 p-7 transition-colors hover:border-Secondary/40">
-      {/* Kategori + kode proyek */}
       <div className="flex items-center justify-between gap-4">
         <span
           className={`px-2 py-0.5 font-SpaceMono text-[10px] font-bold uppercase tracking-wider ${accent.badge}`}
@@ -138,17 +130,14 @@ const ProjectCard = ({ project }) => {
         </span>
       </div>
 
-      {/* Judul */}
       <h3 className="mt-5 font-SpaceMono text-xl font-bold leading-snug text-slate-100">
         {project.title}
       </h3>
 
-      {/* Deskripsi */}
       <p className="mt-3 font-HankenGrotesk text-sm leading-relaxed text-slate-400">
         {project.description}
       </p>
 
-      {/* Tech stack */}
       <ul className="mt-5 flex flex-wrap gap-2">
         {project.stack.map((tech, i) => (
           <li
@@ -162,7 +151,6 @@ const ProjectCard = ({ project }) => {
         ))}
       </ul>
 
-      {/* Link — didorong ke bawah supaya tinggi kartu sejajar */}
       <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-2 pt-6">
         {project.links.map((link) => {
           const Icon = icons[link.icon];

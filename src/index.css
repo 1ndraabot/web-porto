@@ -4,11 +4,17 @@
   --font-SpaceMono: "Space Mono", ui-sans-serif, system-ui, sans-serif;
   --font-HankenGrotesk: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
   --color-bgNeutral: #0A0F1D;
+  --color-bgBorder: #182F3F;
+  --color-bgBorderDark: #122430;
+
   --color-Primary: #25F4AF;
   --color-Secondary: #00F0FF;
   --color-Tertiary: #38BDF8;
-  --color-bgBorder: #182F3F;
-  --color-bgBorderDark: #122430;
+
+  --color-textHeading: #E8EEF8;
+  --color-textBody: #B4BFD1;
+  --color-textMuted: #8B98AE;
+  --color-textFaint: #6B7A92;
 }
 
 body {
