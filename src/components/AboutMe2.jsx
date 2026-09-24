@@ -1,6 +1,5 @@
 import pictMe from '../assets/meandmonkey.png';
 
-/* ---------- Ikon kecil (sama seperti di Projects) ---------- */
 const IconArrowDown = () => (
   <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <line x1="12" y1="5" x2="12" y2="19" />
@@ -15,22 +14,19 @@ const IconDoc = () => (
   </svg>
 );
 
-/* Fokus keahlian — tampil sebagai tag, sama seperti tech stack di Projects */
 const focus = ['Full-Stack', 'Cyber Security', 'Networking'];
 
 const AboutMe2 = () => {
     return (
         <section className='flex flex-col-reverse items-center justify-between gap-10 md:flex-row'>
-            {/* Kiri: teks */}
             <div className='flex flex-col gap-5'>
                 <div className='flex flex-col gap-3'>
-                    <h1 className="font-bold font-SpaceMono text-4xl md:text-6xl">ADHITYA RAYNAR <span className="text-Tertiary drop-shadow-[0px_0px_15px_rgba(0,240,255,0.6)]">INDRA</span>STA</h1>
+                    <h1 className="reveal font-bold font-SpaceMono text-4xl md:text-6xl">ADHITYA RAYNAR <span className="glow-on text-Tertiary drop-shadow-[0px_0px_15px_rgba(0,240,255,0.6)]" style={{ '--delay': '700ms' }}>INDRA</span>STA</h1>
 
-                    <p className='text-Primary leading-relaxed'>Mahasiswa Sistem Informasi yang memadukan keahlian <span className='font-medium text-Secondary'>Full-Stack Software Engineering</span> dengan minat kuat pada dunia Cyber Security. Keahlian lainnya ialah pemahaman kuat dalam Networking baik dari pengalamatan hingga infrastrukturnya</p>
+                    <p className='reveal text-Primary leading-relaxed' style={{ '--delay': '120ms' }}>Mahasiswa Sistem Informasi yang memadukan keahlian <span className='font-medium text-Secondary'>Full-Stack Software Engineering</span> dengan minat kuat pada dunia Cyber Security. Keahlian lainnya ialah pemahaman kuat dalam Networking baik dari pengalamatan hingga infrastrukturnya</p>
                 </div>
 
-                {/* Tag fokus */}
-                <ul className='flex flex-wrap gap-2'>
+                <ul className='reveal flex flex-wrap gap-2' style={{ '--delay': '240ms' }}>
                     {focus.map((item) => (
                         <li key={item} className='bg-bgBorderDark px-2 py-1 font-SpaceMono text-xs text-Secondary'>
                             {item}
@@ -38,8 +34,7 @@ const AboutMe2 = () => {
                     ))}
                 </ul>
 
-                {/* Tombol */}
-                <div className='flex flex-wrap gap-4'>
+                <div className='reveal flex flex-wrap gap-4' style={{ '--delay': '360ms' }}>
                     <a
                         href='#projects'
                         className='inline-flex min-w-48 items-center justify-center gap-2 border border-Secondary bg-Secondary py-3 font-SpaceMono font-semibold text-bgNeutral drop-shadow-[0px_0px_15px_rgba(0,240,255,0.5)]'
@@ -47,7 +42,6 @@ const AboutMe2 = () => {
                         <IconArrowDown />
                         LIHAT PROYEK
                     </a>
-                    {/* Gaya kartu: gelap + garis tepi, hover garis menyala */}
                     <a
                         href='#'
                         className='inline-flex min-w-48 items-center justify-center gap-2 border border-bgBorder bg-bgBorderDark/40 py-3 font-SpaceMono font-semibold text-Secondary transition-colors hover:border-Secondary/40'
@@ -58,8 +52,7 @@ const AboutMe2 = () => {
                 </div>
             </div>
 
-            {/* Kanan: foto dalam bingkai bergaya kartu */}
-            <div className='flex md:min-w-2/5 justify-center'>
+            <div className='reveal flex md:min-w-2/5 justify-center' style={{ '--delay': '200ms' }}>
                 <div className='rounded-full border border-bgBorder bg-bgBorderDark/40 p-3 transition-colors hover:border-Secondary/40'>
                     <img
                         src={pictMe}

@@ -1,4 +1,5 @@
-/* ---------- Ikon kecil (gaya sama seperti di Projects & AboutMe) ---------- */
+import useInView from './useInView';
+
 const IconShield = () => (
   <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M12 3l8 3v6c0 4.5-3.2 8.2-8 9-4.8-.8-8-4.5-8-9V6z" />
@@ -12,10 +13,8 @@ const IconCheck = () => (
   </svg>
 );
 
-/* ---------- Data ---------- */
 const focusCourses = ['Pemrograman', 'Cyber Security', 'Management'];
 
-// Tambah sertifikat baru cukup dengan menambah satu objek di sini
 const certifications = [
   {
     name: 'Cisco Cybersecurity Essentials',
@@ -23,21 +22,27 @@ const certifications = [
   },
 ];
 
-/* ---------- Komponen ---------- */
 const Academy2 = () => {
+    const [ref, visible] = useInView(0.1);
+    const reveal = visible ? 'reveal-scroll is-visible' : 'reveal-scroll';
+
     return (
-        <section id="academy" className="flex flex-col gap-8">
-            {/* Header */}
-            <h2 className="font-SpaceMono text-4xl font-bold uppercase">
+        <section id="academy" ref={ref} className="flex flex-col gap-8">
+            <h2 className={`${reveal} font-SpaceMono text-4xl font-bold uppercase`}>
                 Pendidikan &amp;{' '}
-                <span className="text-Tertiary drop-shadow-[0px_0px_15px_rgba(0,240,255,0.6)]">
+                <span
+                    className={`${visible ? 'glow-on' : ''} text-Tertiary drop-shadow-[0px_0px_15px_rgba(0,240,255,0.6)]`}
+                    style={{ '--delay': '500ms' }}
+                >
                     Validasi Keahlian
                 </span>
             </h2>
 
             <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-3">
-                {/* Kiri: pendidikan */}
-                <article className="flex flex-col gap-4 border border-bgBorder bg-bgBorderDark/40 p-7 transition-colors hover:border-Secondary/40 lg:col-span-2">
+                <article
+                    className={`${reveal} flex flex-col gap-4 border border-bgBorder bg-bgBorderDark/40 p-7 transition-colors hover:border-Secondary/40 lg:col-span-2`}
+                    style={{ '--delay': '120ms' }}
+                >
                     <div className="flex items-center justify-between gap-4">
                         <span className="bg-Primary/15 px-2 py-0.5 font-SpaceMono text-[10px] font-bold uppercase tracking-wider text-Primary">
                             Sarjana (S1) - On Going
@@ -54,7 +59,6 @@ const Academy2 = () => {
                         </p>
                     </div>
 
-                    {/* Statistik */}
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                         <div className="flex flex-col gap-1 bg-bgBorder px-4 py-3 text-center">
                             <p className="font-SpaceMono text-xs uppercase text-Primary">Indeks Prestasi Kumulatif</p>
@@ -66,7 +70,6 @@ const Academy2 = () => {
                         </div>
                     </div>
 
-                    {/* Fokus mata kuliah */}
                     <div className="flex flex-col gap-2">
                         <p className="font-SpaceMono text-xs text-Primary">Fokus Mata Kuliah Utama:</p>
                         <ul className="flex flex-wrap gap-2">
@@ -79,12 +82,12 @@ const Academy2 = () => {
                     </div>
                 </article>
 
-                {/* Kanan: sertifikasi */}
                 <div className="flex flex-col gap-5">
-                    {certifications.map((cert) => (
+                    {certifications.map((cert, i) => (
                         <article
                             key={cert.name}
-                            className="flex flex-col gap-4 border border-bgBorder bg-bgBorderDark/40 p-7 transition-colors hover:border-Secondary/40"
+                            className={`${reveal} flex flex-col gap-4 border border-bgBorder bg-bgBorderDark/40 p-7 transition-colors hover:border-Secondary/40`}
+                            style={{ '--delay': `${240 + i * 120}ms` }}
                         >
                             <div className="flex items-center justify-between gap-4">
                                 <div className="bg-bgBorderDark p-2 text-Primary">

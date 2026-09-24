@@ -1,3 +1,5 @@
+import useInView from './useInView';
+
 const IconCode = () => (
   <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <polyline points="8 6 2 12 8 18" />
@@ -114,11 +116,15 @@ const projects = [
   },
 ];
 
-const ProjectCard = ({ project }) => {
+// `reveal` = class animasi masuk-layar, `delay` = jeda (ms) untuk efek berurutan
+const ProjectCard = ({ project, reveal, delay }) => {
   const accent = accents[project.accent];
 
   return (
-    <article className="flex flex-col border border-bgBorder bg-bgBorderDark/40 p-7 transition-colors hover:border-Secondary/40">
+    <article
+      className={`${reveal} flex flex-col border border-bgBorder bg-bgBorderDark/40 p-7 transition-colors hover:border-Secondary/40`}
+      style={{ '--delay': `${delay}ms` }}
+    >
       <div className="flex items-center justify-between gap-4">
         <span
           className={`px-2 py-0.5 font-SpaceMono text-[10px] font-bold uppercase tracking-wider ${accent.badge}`}
@@ -178,14 +184,19 @@ const ProjectCard = ({ project }) => {
 };
 
 const Projects2 = () => {
+  // Animasi baru berjalan saat section ini masuk ke layar
+  const [ref, visible] = useInView(0.05);
+  const reveal = visible ? "reveal-scroll is-visible" : "reveal-scroll";
+
   return (
     <section
       id="projects"
+      ref={ref}
       className=" bg-bgNeutral font-HankenGrotesk text-slate-200"
     >
       <div>
         {/* Header */}
-        <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
+        <div className={`${reveal} mb-8 flex flex-wrap items-end justify-between gap-3`}>
           <h2 className="font-SpaceMono text-3xl font-bold uppercase tracking-widest text-slate-300 md:text-4xl">
             Proyek &amp; Eksplorasi
           </h2>
@@ -196,8 +207,13 @@ const Projects2 = () => {
 
         {/* Grid kartu */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {projects.map((project, i) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              reveal={reveal}
+              delay={120 + i * 100}
+            />
           ))}
         </div>
       </div>
@@ -206,4 +222,3 @@ const Projects2 = () => {
 };
 
 export default Projects2;
-
